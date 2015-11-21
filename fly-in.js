@@ -3,6 +3,7 @@
  * Author: McKay Smalley - November 2015
  * REQUIRES:
  *         - jQuery
+ *         - An element with the id of runway
  * ***************************************************************************/
 var flewIn;
 var flyDistance;
@@ -48,7 +49,7 @@ $(document).ready(function()
         throw new Error("Fly-in JavaScript requires jQuery");
     else {
         flewIn = false;
-        flyDistance = -($('body').width());
+        flyDistance = -($('#runway').width());
         var flyerRight = document.getElementsByClassName('fly-in-right');
         var flyerLeft = document.getElementsByClassName('fly-in-left');
 
@@ -71,7 +72,7 @@ $(document).ready(function()
         }
 
         //sets the overflow for offscreen elements
-        $('body').css('overflow', 'hidden');
+        $('#runway').css('overflow', 'hidden');
     }
 });
 
@@ -189,23 +190,54 @@ function bottomFlyer()
 }
 
 /******************************************************************************
+ * GET OPTIONS
+ *
+ * - gets the options for the the specified element
+ * ***************************************************************************/
+function getOptions(e) {
+    var elementOptions = {
+        "speed": "1",
+        "animation-timing-function": "linear"
+    };
+
+    if($(e).hasDataAttribute("speed"))
+        elementOptions["speed"] = $(e).data("speed");
+
+    if($(e).hasDataAttribute("animation-timing-function"))
+        elementOptions["animation-timing-function"] = $(e).data("animation-timing-function");
+
+    return elementOptions;
+}
+
+/******************************************************************************
+ * HAS DATA ATTRIBUTE
+ *
+ * - returns true if the element has the attribute set in the form of 
+ *   data-"attribute"
+ * ***************************************************************************/
+$.fn.hasDataAttribute = function(attribute) {
+    return $(this).data(attribute) != undefined && $(this).data(attribute) != '';
+};
+
+/******************************************************************************
  * FLY IN
  *
  * - animates an element across the x axis
  * ***************************************************************************/
 function flyIn(e, flyDistance)
 {
-    e.style.transition = "all 0.5s ease-out";
-    e.style.WebkitTransition = "all 0.5s ease-out";
-    e.style.OTransition = "all 0.5s ease-out";
-    e.style.msTransition = "all 0.5s ease-out";
-    e.style.MozTransition = "all 0.5s ease-out";
+    var flight_details = getOptions(e);
+    $(e).css('transition',       "all "+flight_details["speed"]+"s "+flight_details["animation-timing-function"]);
+    $(e).css('WebkitTransition', "all "+flight_details["speed"]+"s "+flight_details["animation-timing-function"]);
+    $(e).css('OTransition',      "all "+flight_details["speed"]+"s "+flight_details["animation-timing-function"]);
+    $(e).css('msTransition',     "all "+flight_details["speed"]+"s "+flight_details["animation-timing-function"]);
+    $(e).css('MozTransition',    "all "+flight_details["speed"]+"s "+flight_details["animation-timing-function"]);
 
-    e.style.transform = "translateX("+flyDistance+"px)";
-    e.style.WebkitTransform = "translateX("+flyDistance+"px)";
-    e.style.OTransform = "translateX("+flyDistance+"px)";
-    e.style.msTransform = "translateX("+flyDistance+"px)";
-    e.style.MozTransform = "translateX("+flyDistance+"px)";
+    $(e).css('transform',       "translateX("+flyDistance+"px)");
+    $(e).css('WebkitTransform', "translateX("+flyDistance+"px)");
+    $(e).css('OTransform',      "translateX("+flyDistance+"px)");
+    $(e).css('msTransform',     "translateX("+flyDistance+"px)");
+    $(e).css('MozTransform',    "translateX("+flyDistance+"px)");
 
-    e.style.opacity = 1;
+    $(e).css('opacity', 1);
 }
