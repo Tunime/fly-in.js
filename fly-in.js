@@ -1,3 +1,9 @@
+/******************************************************************************
+ * FLY-IN.JS - Javascript that will animate any element to fly onto page
+ * Author: McKay Smalley - November 2015
+ * REQUIRES:
+ *         - jQuery
+ * ***************************************************************************/
 var flewIn;
 var flyDistance;
 
@@ -42,7 +48,7 @@ $(document).ready(function()
         throw new Error("Fly-in JavaScript requires jQuery");
     else {
         flewIn = false;
-        flyDistance = -($('#main').width());
+        flyDistance = -($('body').width());
         var flyerRight = document.getElementsByClassName('fly-in-right');
         var flyerLeft = document.getElementsByClassName('fly-in-left');
 
@@ -65,7 +71,7 @@ $(document).ready(function()
         }
 
         //sets the overflow for offscreen elements
-        $('#main').css('overflow', 'hidden');
+        $('body').css('overflow', 'hidden');
     }
 });
 
