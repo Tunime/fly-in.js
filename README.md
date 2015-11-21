@@ -17,3 +17,7 @@ After that, include fly-in.min.js
 <div class='fly-in-left'>I will fly in from the left!</div>
 <div class='fly-in-right'>I will fly in from the right!</div>
 ```
+
+## Demo
+
+[Demo](http://mckaysmalley.com/ski_survey/)
