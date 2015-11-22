@@ -43,7 +43,7 @@ Simply add the class that you want the element to fly in from.
 ### Options
 Currently the only options that are supported are: 
 - `speed`
-- `animation-timiing-function`
+- `transition-timiing-function`
 
 **Speed:**
 Allows you to set the amount of time it will take to animate in seconds.
@@ -54,11 +54,11 @@ Default is `1`
 ```
 
 **Animation-timing-function:**
-Allows you to choose the css animation timing function. A list of valid functions can be found [here](http://www.w3schools.com/cssref/css3_pr_animation-timing-function.asp).
+Allows you to choose the css animation timing function. A list of valid functions can be found [here](http://www.w3schools.com/cssref/css3_pr_transition-timing-function.asp).
 Default is `linear`
 ```
-<div class='fly-in-right'data-animation-timing-function="linear">linear</div>
-<div class='fly-in-left'data-animation-timing-function="ease-in-out">ease-in-out</div>
+<div class='fly-in-right'data-transition-timing-function="linear">linear</div>
+<div class='fly-in-left'data-transition-timing-function="ease-in-out">ease-in-out</div>
 ```
 
 ## Misc

@@ -197,14 +197,14 @@ function bottomFlyer()
 function getOptions(e) {
     var elementOptions = {
         "speed": "1",
-        "animation-timing-function": "linear"
+        "transition-timing-function": "linear"
     };
 
     if($(e).hasDataAttribute("speed"))
         elementOptions["speed"] = $(e).data("speed");
 
-    if($(e).hasDataAttribute("animation-timing-function"))
-        elementOptions["animation-timing-function"] = $(e).data("animation-timing-function");
+    if($(e).hasDataAttribute("transition-timing-function"))
+        elementOptions["transition-timing-function"] = $(e).data("transition-timing-function");
 
     return elementOptions;
 }
@@ -227,11 +227,11 @@ $.fn.hasDataAttribute = function(attribute) {
 function flyIn(e, flyDistance)
 {
     var flight_details = getOptions(e);
-    $(e).css('transition',       "all "+flight_details["speed"]+"s "+flight_details["animation-timing-function"]);
-    $(e).css('WebkitTransition', "all "+flight_details["speed"]+"s "+flight_details["animation-timing-function"]);
-    $(e).css('OTransition',      "all "+flight_details["speed"]+"s "+flight_details["animation-timing-function"]);
-    $(e).css('msTransition',     "all "+flight_details["speed"]+"s "+flight_details["animation-timing-function"]);
-    $(e).css('MozTransition',    "all "+flight_details["speed"]+"s "+flight_details["animation-timing-function"]);
+    $(e).css('transition',       "all "+flight_details["speed"]+"s "+flight_details["transition-timing-function"]);
+    $(e).css('WebkitTransition', "all "+flight_details["speed"]+"s "+flight_details["transition-timing-function"]);
+    $(e).css('OTransition',      "all "+flight_details["speed"]+"s "+flight_details["transition-timing-function"]);
+    $(e).css('msTransition',     "all "+flight_details["speed"]+"s "+flight_details["transition-timing-function"]);
+    $(e).css('MozTransition',    "all "+flight_details["speed"]+"s "+flight_details["transition-timing-function"]);
 
     $(e).css('transform',       "translateX("+flyDistance+"px)");
     $(e).css('WebkitTransform', "translateX("+flyDistance+"px)");
