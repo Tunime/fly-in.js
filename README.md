@@ -43,7 +43,7 @@ Simply add the class that you want the element to fly in from.
 ### Options
 Currently the only options that are supported are: 
 - `speed`
-- `transition-timiing-function`
+- `transition-timing-function`
 
 **Speed:**
 Allows you to set the amount of time it will take to animate in seconds.
