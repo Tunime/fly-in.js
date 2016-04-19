@@ -68,4 +68,4 @@ Fly-in.js also monitors when the bottom fly-in element has animated. If the user
 
 ## Demo
 
-[Demo](http://mckaysmalley.com/ski_survey/)
+[Demo](http://smckaysmalley.github.io/ski_survey/)
